@@ -7,10 +7,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 @EnableConfigurationProperties(FileStorageProperties.class)
 @SpringBootApplication
-public class ProductApplication {
+public class BookmanagermentApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductApplication.class, args);
+		SpringApplication.run(BookmanagermentApplication.class, args);
 	}
 
 }
