@@ -4,10 +4,14 @@
       <ul class="nav mb-2">
         <!-- Category List -->
         <li class="nav-item">
-          <a class="nav-link active" href="#" v-on:click="fetchBooks()">All</a>
+              <input type="text" class="form-control" placeholder="Search for books..." v-model="searchString"
+                @input="fetchProducts(searchString)" />
+            </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#" v-on:click="fetchProducts()">All</a>
         </li>
         <li class="nav-item" v-for="category in categories" :key="category.id">
-          <a class="nav-link active" href="#" v-on:click="fetchBooks(searchString, category.id)">{{ category.title
+          <a class="nav-link active" href="#" v-on:click="fetchProducts(searchString, category.id)">{{ category.title
             }}</a>
         </li>
 
@@ -16,9 +20,9 @@
     <!-- Product Grid -->
     <div class="col-md-4 mb-4" v-for="item in products" :key="item.id">
       <div class="card">
-        <img :src="item.media.thumbUrl" style="height: 300px;" class="card-img-top" :alt="item.title">
+        <img :src="item.media.thumbUrl" style="height: 300px;" class="card-img-top" :alt="item.name">
         <div class="card-body">
-          <h5 class="card-title">{{ item.title }}</h5>
+          <h5 class="card-title">{{ item.name }}</h5>
           <p class="card-text"><strong>${{ item.price.toFixed(2) }}</strong></p>
           <button class="btn btn-primary" @click="addToCart(item.id)">Add to Cart</button>
         </div>

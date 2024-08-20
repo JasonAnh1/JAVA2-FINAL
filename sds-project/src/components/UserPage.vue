@@ -10,10 +10,6 @@
         <!-- Navbar -->
         <nav>
           <ul class="nav">
-            <li class="nav-item">
-              <input type="text" class="form-control" placeholder="Search for books..." v-model="searchString"
-                @input="fetchBooks(searchString)" />
-            </li>
             <!-- Cart -->
             <li class="nav-item">
               <a class="nav-link" v-on:click="goHome">Home</a>

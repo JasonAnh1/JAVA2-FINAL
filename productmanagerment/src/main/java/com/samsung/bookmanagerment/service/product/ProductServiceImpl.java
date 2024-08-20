@@ -25,13 +25,13 @@ public class ProductServiceImpl extends BaseService implements ProductService {
     }
 
     @Override
-    public List<Product> listProduct(String title, Long categoryId) {
-        if(title != null || categoryId != null){
-            if(title != null && categoryId != null){
-                return productRepository.getProductByNameLikeAndCatalogId(title,categoryId);
+    public List<Product> listProduct(String name, Long categoryId) {
+        if(name != null || categoryId != null){
+            if(name != null && categoryId != null){
+                return productRepository.findByNameAndCatalogId(name,categoryId);
             }
-            if(title != null){
-                return productRepository.getProductByNameLike(title);
+            if(name != null){
+                return productRepository.findByName(name);
             }
             return productRepository.getProductByCatalogId(categoryId);
         }

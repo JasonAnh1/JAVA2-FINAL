@@ -29,11 +29,11 @@ public class ProductController extends BaseController {
         }
     }
     @GetMapping("v1/publish/get-products")
-    public ResponseEntity<?> getBooks(@RequestParam(required = false) String title,
+    public ResponseEntity<?> getBooks(@RequestParam(required = false) String name,
                                       @RequestParam(required = false) Long categoryId) {
         try {
 //
-            return ResponseEntity.ok( productService.listProduct(title,categoryId));
+            return ResponseEntity.ok( productService.listProduct(name,categoryId));
         } catch (Exception ex) {
             return  ResponseEntity.badRequest().body(new BaseResponse(ex.getMessage(), null));
         }
